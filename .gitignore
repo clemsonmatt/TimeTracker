@@ -21,4 +21,4 @@
 .byebug_history
 
 # Sensitive data
-/config/database.yml
+config/database.yml
