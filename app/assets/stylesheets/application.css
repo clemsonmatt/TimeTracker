@@ -13,9 +13,10 @@
  *= require_tree .
  *= require_self
  *= require material_icons
+ *= require rails_bootstrap_forms
  */
 
-.text-watermelon {
+/*.text-watermelon {
     color: #ff3b3f;
 }
 .text-sky {
@@ -32,4 +33,86 @@
 }
 .bg-carbon {
     background-color: #a9a9a9;
+}
+
+.breadcrumb {
+    background-color: #a9a9a9;
+}
+.breadcrumb .active {
+    color: #efefef;
+}
+.breadcrumb a {
+    color: #caebf2;
+}
+.breadcrumb a:hover {
+    color: #badbe2;
+}*/
+
+/*.text-primary {
+    color: #FF5722;
+}
+.text-primary-dark {
+    color: #E64A19;
+}
+.text-accent {
+    color: #caebf2;
+}
+.bg-primary {
+    background-color: #FF5722 !important;
+}
+.bg-primary-dark {
+    background-color: #E64A19;
+}
+.bg-accent {
+    background-color: #caebf2;
+}
+
+.breadcrumb {
+    background-color: #a9a9a9;
+}
+.breadcrumb .active {
+    color: #efefef;
+}
+.breadcrumb a {
+    color: #caebf2;
+}
+.breadcrumb a:hover {
+    color: #badbe2;
+}*/
+
+/*.text-primary {
+    color: #607D8B;
+}
+.text-primary-dark {
+    color: #455A64;
+}
+.text-accent {
+    color: #FF5722;
+}
+
+.bg-primary {
+    background-color: #607D8B !important;
+}
+.bg-primary-dark {
+    background-color: #455A64;
+}
+.bg-accent {
+    background-color: #FF5722;
+}*/
+
+.breadcrumb {
+    background-color: #CFD8DC;
+    margin: 0px -15px -25px -15px;
+    padding: 20px 25px 40px 35px;
+    border-radius: 0px;
+}
+.breadcrumb .active {
+    color: #656565;
+}
+.breadcrumb a, a:hover {
+    color: #959595;
+}
+.breadcrumb .links {
+    float: right;
+    margin-top: -15px;
 }
