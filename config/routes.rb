@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get 'person/index'
-
-    get 'landing/index'
+    resources :person,
+        :landing
 
     root 'landing#index'
 

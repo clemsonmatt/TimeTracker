@@ -1,13 +1,36 @@
-<h2 class="text-watermelon">People</h2>
+<h2 class="text-warning">People</h2>
+
+<ol class="breadcrumb">
+    <div class="links">
+        <%= link_to new_person_path, class: 'btn btn-sm btn-warning' do %>
+            <%= material_icon.create %> Add Person
+        <% end %>
+    </div>
+    <li><%= link_to "People", person_index_path %></li>
+    <li class="active">All People</li>
+</ol>
 
 <ul class="list-group">
-    <% for i in 0..8 %>
-        <a href="#" class="list-group-item">
-            <div style="height: 45px; width: 45px; border-radius: 45px; background-color: #ccc;" class="pull-left"></div>
-            <h4 class="list-group-item-header" style="margin-left: 55px;">
-                Matt Ellis
+    <% @people.each do |person| %>
+        <%= link_to person_path(person), class: 'list-group-item' do %>
+            <div style="height: 80px; width: 80px; border-radius: 80px; background-color: #ccc;" class="pull-left"></div>
+            <h4 class="list-group-item-header" style="margin-left: 100px;">
+                <%= person %>
             </h4>
-        </a>
+            <p class="list-group-item-text text-muted" style="margin-left: 110px;">
+                <%= person.email %>
+                <br>
+                <%= person.phone %>
+            </p>
+        <% end %>
+    <% end %>
+
+    <% if @people.length == 0 %>
+        <li class="list-group-item">
+            <h4 class="list-group-item-header">
+                None
+            </h4>
+        </li>
     <% end %>
 </ul>
 

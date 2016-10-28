@@ -1,0 +1,45 @@
+<h2 class="text-warning">People</h2>
+
+<ol class="breadcrumb">
+    <div class="links">
+        <%= link_to person_path(@person), method: :delete, class: 'btn btn-sm btn-warning' do %>
+            <%= material_icon.delete_forever %> Remove
+        <% end %>
+    </div>
+    <li><%= link_to "People", person_index_path %></li>
+    <li><%= link_to @person, person_path %></li>
+    <li class="active">Edit</li>
+</ol>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <%= bootstrap_form_for :person, url: {:action => "update"}, method: :patch do |f| %>
+            <%# errors %>
+            <% if @person.errors.any? %>
+                <div id="error_explanation">
+                    <h4 class="text-danger">
+                        <%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:
+                    </h4>
+                    <ul>
+                        <% @person.errors.full_messages.each do |msg| %>
+                            <li class="text-danger"><%= msg %></li>
+                        <% end %>
+                    </ul>
+                </div>
+            <% end %>
+
+            <%# form %>
+            <div class="row">
+                <div class="col-md-6">
+                    <%= f.text_field :first_name %>
+                    <%= f.text_field :last_name %>
+                </div>
+                <div class="col-md-6">
+                    <%= f.text_field :email %>
+                    <%= f.text_field :phone %>
+                </div>
+            </div>
+            <%= f.submit :class => 'btn btn-warning' %>
+        <% end %>
+    </div>
+</div>
