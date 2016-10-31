@@ -1,9 +1,10 @@
-<h2 class="text-warning">People</h2>
-
-<ol class="breadcrumb">
-    <li><%= link_to "People", person_index_path %></li>
-    <li class="active">Add Person</li>
-</ol>
+<div class="bg-header">
+    <h2>People</h2>
+    <ol class="breadcrumb">
+        <li><%= link_to "People", person_index_path %></li>
+        <li class="active">Add Person</li>
+    </ol>
+</div>
 
 <div class="panel panel-default">
     <div class="panel-body">
@@ -27,10 +28,12 @@
                 <div class="col-md-6">
                     <%= f.text_field :first_name %>
                     <%= f.text_field :last_name %>
+                    <%= f.text_field :phone %>
                 </div>
                 <div class="col-md-6">
                     <%= f.text_field :email %>
-                    <%= f.text_field :phone %>
+                    <%= f.password_field :password %>
+                    <%= f.password_field :password_confirmation %>
                 </div>
             </div>
             <%= f.submit :class => 'btn btn-warning' %>

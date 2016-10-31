@@ -11,93 +11,99 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-default bg-primary" role="navigation" style="border-radius: 0px; margin-bottom: 0px;">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <!-- <a class="navbar-brand" href="#">TimeTracker</a> -->
-                </div>
-
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <%= link_to landing_index_path do %>
-                                <center>
-                                    <%= material_icon.dashboard.md_48 %>
-                                    <br>
-                                    <p style="margin: 10px 8px 0px 0px;">Dashboard</p>
-                                </center>
-                            <% end %>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <center>
-                                    <%= material_icon.work.md_48 %>
-                                    <br>
-                                    <p style="margin: 10px 8px 0px 0px;">Projects</p>
-                                </center>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <center>
-                                    <%= material_icon.stars.md_48 %>
-                                    <br>
-                                    <p style="margin: 10px 8px 0px 0px;">Clients</p>
-                                </center>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <center>
-                                    <%= material_icon.group_work.md_48 %>
-                                    <br>
-                                    <p style="margin: 10px 8px 0px 0px;">Teams</p>
-                                </center>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <center>
-                                    <%= material_icon.insert_chart.md_48 %>
-                                    <br>
-                                    <p style="margin: 10px 8px 0px 0px;">Reports</p>
-                                </center>
-                            </a>
-                        </li>
-                        <li>
-                            <%= link_to person_index_path do %>
-                                <center>
-                                    <%= material_icon.face.md_48 %>
-                                    <br>
-                                    <p style="margin: 10px 8px 0px 0px;">People</p>
-                                </center>
-                            <% end %>
-                        </li>
-                    </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">
-                                <center>
-                                    <%= material_icon.account_circle.md_48 %>
-                                    <br>
-                                    <p style="margin: 10px 8px 0px 0px;">Profile</p>
-                                </center>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+        <% if ! @user %>
+            <div class="container">
+                <%= yield %>
             </div>
-        </nav>
+        <% else %>
+            <nav class="navbar navbar-default" role="navigation" style="border-radius: 0px; margin-bottom: 0px;">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- <a class="navbar-brand" href="#">TimeTracker</a> -->
+                    </div>
 
-        <div class="container-fluid">
-            <%= yield %>
-        </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <%= link_to landing_index_path do %>
+                                    <center>
+                                        <%= material_icon.dashboard.md_48 %>
+                                        <br>
+                                        <p style="margin: 10px 8px 0px 0px;">Dashboard</p>
+                                    </center>
+                                <% end %>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <center>
+                                        <%= material_icon.work.md_48 %>
+                                        <br>
+                                        <p style="margin: 10px 8px 0px 0px;">Projects</p>
+                                    </center>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <center>
+                                        <%= material_icon.stars.md_48 %>
+                                        <br>
+                                        <p style="margin: 10px 8px 0px 0px;">Clients</p>
+                                    </center>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <center>
+                                        <%= material_icon.group_work.md_48 %>
+                                        <br>
+                                        <p style="margin: 10px 8px 0px 0px;">Teams</p>
+                                    </center>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <center>
+                                        <%= material_icon.insert_chart.md_48 %>
+                                        <br>
+                                        <p style="margin: 10px 8px 0px 0px;">Reports</p>
+                                    </center>
+                                </a>
+                            </li>
+                            <li>
+                                <%= link_to person_index_path do %>
+                                    <center>
+                                        <%= material_icon.face.md_48 %>
+                                        <br>
+                                        <p style="margin: 10px 8px 0px 0px;">People</p>
+                                    </center>
+                                <% end %>
+                            </li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">
+                                    <center>
+                                        <%= material_icon.account_circle.md_48 %>
+                                        <br>
+                                        <p style="margin: 10px 8px 0px 0px;">Profile</p>
+                                    </center>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container-fluid">
+                <%= yield %>
+            </div>
+        <% end %>
         <br>
     </body>
 </html>

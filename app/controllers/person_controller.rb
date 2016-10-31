@@ -1,4 +1,6 @@
 class PersonController < ApplicationController
+    before_action :logged_in?
+
     def index
         @people = Person.all
     end
@@ -44,6 +46,6 @@ class PersonController < ApplicationController
 
     private
         def person_params
-            params.require(:person).permit(:first_name, :last_name, :email, :phone)
+            params.require(:person).permit(:first_name, :last_name, :email, :phone, :password, :password_confirmation)
         end
 end
