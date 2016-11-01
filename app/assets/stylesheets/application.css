@@ -16,47 +16,6 @@
  *= require rails_bootstrap_forms
  */
 
-.breadcrumb {
-    background-color: inherit;
-    margin-bottom: 5px;
-    font-size: 1.2em;
-    margin: -10px -13px 0px -13px;
-}
-.breadcrumb a, a:hover {
-    color: #FF5722;
-}
-.breadcrumb .active {
-    color: #607D8B;
-}
 .breadcrumb .links {
     float: right;
-    margin-top: -15px;
-}
-.breadcrumb > li+li:before {
-    color: #607D8B;
-}
-
-.navbar-nav li {
-    width: 125px;
-    border-right: 1px solid #e6e6e6;
-    transition: opacity 0.3s ease;
-}
-.navbar-nav li:hover {
-    opacity: 0.7;
-}
-.navbar-nav li:first-child {
-    border-left: 1px solid #e6e6e6;
-}
-
-.card .header-primary {
-  background: linear-gradient(60deg, #FF5722, #cF2702);
-}
-
-.bg-header {
-    background-color: #CFD8DC;
-    margin: -10px -15px -25px -15px;
-    padding: 20px 25px 35px 25px;
-}
-.bg-header h2 {
-    color: #607D8B;
 }

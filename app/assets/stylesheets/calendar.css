@@ -1,0 +1,51 @@
+.calendar table {
+    width: 100%;
+}
+.calendar table thead th {
+    width: 10%;
+    padding: 5px;
+    text-align: center;
+}
+.calendar table thead th:first-child {
+    border-bottom: 1px solid #ddd;
+}
+.calendar table thead th:not(:first-child) {
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.calendar table td {
+    color: #bbb;
+}
+
+.calendar .last-month {
+    background-color: #f6f7f8;
+    border-left: 1px solid #ddd;
+    box-shadow:inset 0px -1px 0px 0px #ddd;
+}
+.calendar .next-month {
+    background-color: #f6f7f8;
+    border-left: 1px solid #ddd;
+    box-shadow:inset 0px -1px 0px 0px #ddd;
+}
+
+.calendar .today {
+    background-color: #2196f3;
+    color: #fff !important;
+    /*padding: 1px 5px 1px 5px;*/
+    /*border-radius: 15px;*/
+}
+.calendar .day {
+    height: 115px;
+    text-align: center;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.calendar .day-number {
+    /*color: #bbb;*/
+    font-size: 2.8em;
+    font-weight: 100;
+    line-height: 100px;
+}
+.calendar .day-amount {
+    margin-top: -15px;
+}

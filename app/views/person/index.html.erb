@@ -1,38 +1,33 @@
-<div class="bg-header">
-    <h2>People</h2>
-    <ol class="breadcrumb">
-        <div class="links">
-            <%= link_to new_person_path, class: 'btn btn-sm btn-warning' do %>
-                <%= material_icon.create %> Add Person
-            <% end %>
-        </div>
-        <li><%= link_to "People", person_index_path %></li>
-        <li class="active">All People</li>
-    </ol>
-</div>
-
-<div class="panel panel-default">
-    <ul class="list-group">
-        <% @people.each do |person| %>
-            <%= link_to person_path(person), class: 'list-group-item' do %>
-                <div style="height: 80px; width: 80px; border-radius: 80px; background-color: #ccc;" class="pull-left"></div>
-                <h4 class="list-group-item-header" style="margin-left: 100px;">
-                    <%= person %>
-                </h4>
-                <p class="list-group-item-text text-muted" style="margin-left: 110px;">
-                    <%= person.email %>
-                    <br>
-                    <%= person.phone %>
-                </p>
-            <% end %>
+<ol class="breadcrumb">
+    <div class="links">
+        <%= link_to new_person_path, class: 'btn-round btn-round-sm' do %>
+            <%= material_icon.add.md_18 %> Add Person
         <% end %>
+    </div>
+    <li><%= link_to "People", person_index_path %></li>
+    <li class="active">All People</li>
+</ol>
 
-        <% if @people.length == 0 %>
-            <li class="list-group-item">
-                <h4 class="list-group-item-header">
-                    None
-                </h4>
-            </li>
+<ul class="list-group card">
+    <% @people.each do |person| %>
+        <%= link_to person_path(person), class: 'list-group-item' do %>
+            <div style="height: 80px; width: 80px; border-radius: 80px; background-color: #ccc;" class="pull-left"></div>
+            <h4 class="list-group-item-header" style="margin-left: 100px;">
+                <%= person %>
+            </h4>
+            <p class="list-group-item-text text-muted" style="margin-left: 110px;">
+                <%= person.email %>
+                <br>
+                <%= person.phone %>
+            </p>
         <% end %>
-    </ul>
-</div>
+    <% end %>
+
+    <% if @people.length == 0 %>
+        <li class="list-group-item">
+            <h4 class="list-group-item-header">
+                None
+            </h4>
+        </li>
+    <% end %>
+</ul>

@@ -1,16 +1,13 @@
-<div class="bg-header">
-    <h2>People</h2>
-    <ol class="breadcrumb">
-        <div class="links">
-            <%= link_to person_path(@person), method: :delete, class: 'btn btn-sm btn-warning' do %>
-                <%= material_icon.delete_forever %> Remove
-            <% end %>
-        </div>
-        <li><%= link_to "People", person_index_path %></li>
-        <li><%= link_to @person, person_path %></li>
-        <li class="active">Edit</li>
-    </ol>
-</div>
+<ol class="breadcrumb">
+    <div class="links">
+        <%= link_to person_path(@person), method: :delete, class: 'btn-round btn-round-sm btn-round-danger' do %>
+            <%= material_icon.delete.md_18 %> Remove
+        <% end %>
+    </div>
+    <li><%= link_to "People", person_index_path %></li>
+    <li><%= link_to @person, person_path %></li>
+    <li class="active">Edit</li>
+</ol>
 
 <div class="panel panel-default">
     <div class="panel-body">
@@ -40,7 +37,7 @@
                     <%= f.text_field :phone %>
                 </div>
             </div>
-            <%= f.submit :class => 'btn btn-warning' %>
+            <%= f.submit :class => 'btn btn-primary' %>
         <% end %>
     </div>
 </div>
