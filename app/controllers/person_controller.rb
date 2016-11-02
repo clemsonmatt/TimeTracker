@@ -7,6 +7,8 @@ class PersonController < ApplicationController
 
     def show
         @person = Person.find(params[:id])
+
+        @entries = Entry.all.where(person: @person).take(10)
     end
 
     def new

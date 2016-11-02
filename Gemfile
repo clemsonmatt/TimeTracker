@@ -53,3 +53,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'material_icons'
 gem 'bootstrap_form'
 
+gem 'momentjs-rails'
+gem 'jquery-turbolinks'

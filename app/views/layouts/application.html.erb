@@ -25,9 +25,6 @@
                         </div>
 
                         <ul id="side-menu" class="nav">
-                            <li>
-                                <%= link_to "Dashboard", landing_index_path %>
-                            </li>
                             <li><a href="">Projects</a></li>
                             <li><a href="">Clients</a></li>
                             <li><a href="">Teams</a></li>
@@ -37,7 +34,9 @@
 
                         <div class="clearfix">
                             <center>
-                                <a href="#" class="btn-round"><%= material_icon.add.md_24 %></a>
+                                <%= link_to new_entry_path, class: "btn-round" do %>
+                                    <%= material_icon.add.md_24 %>
+                                <% end %>
                             </center>
                         </div>
                     </div>
@@ -49,7 +48,7 @@
                         <%= link_to person_path(@user), class: 'btn btn-primary' do %>
                             <%= material_icon.account_circle.md_48 %>
                             <br />
-                            PROFILE
+                            <%= @user.first_name %>
                         <% end %>
                     </div>
                     Header

@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  get 'entry/new'
+
   get 'sessions/new'
 
     resources :person,
         :landing,
-        :sessions
+        :sessions,
+        :entry
 
     root 'landing#index'
 

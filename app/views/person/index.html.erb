@@ -8,7 +8,7 @@
     <li class="active">All People</li>
 </ol>
 
-<ul class="list-group card">
+<ul class="list-group panel panel-default">
     <% @people.each do |person| %>
         <%= link_to person_path(person), class: 'list-group-item' do %>
             <div style="height: 80px; width: 80px; border-radius: 80px; background-color: #ccc;" class="pull-left"></div>
