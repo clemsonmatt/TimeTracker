@@ -48,13 +48,23 @@ class EntryController < ApplicationController
         totalTime = @entry.total_time
         diffTime  = @entry.end - @entry.start
 
+        # get hours/mins/sec
+        hours = (diffTime / 3600).to_i
+        diffTime -= hours * 3600
+
+        mins = (diffTime / 60).to_i
+        diffTime -= mins * 60
+
+        secs = diffTime.to_i
+
         if totalTime
-            totalTime = totalTime + diffTime
-        else
-            totalTime = diffTime
+            totalTime = totalTime.split(':')
+            hours += totalTime[0].to_i
+            mins  += totalTime[1].to_i
+            secs  += totalTime[2].to_i
         end
 
-        totalTime = Time.at(totalTime).strftime "%H:%M:%S"
+        totalTime = hours.to_s + ":" + mins.to_s + ":" + secs.to_s
 
         @entry.total_time = totalTime
         @entry.save

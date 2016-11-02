@@ -9,15 +9,17 @@ class Entry < ApplicationRecord
         totalTime = self.total_time
         diffTime  = Time.now - self.start
 
-        if totalTime
-            totalTime = totalTime + diffTime
-        else
+        if totalTime == nil
             return self.start
         end
 
-        totalTime = Time.at(totalTime).strftime "%H:%M:%S"
-        totalTime = totalTime.split(':').map { |a| a.to_i }.inject(0) { |a, b| a * 60 + b}
+        totalTime = totalTime.split(':')
+        hours = totalTime[0].to_i
+        mins  = totalTime[1].to_i
+        secs  = totalTime[2].to_i
 
-        return Time.now - totalTime
+        totalSecs = (hours * 3600) + (mins * 60) + secs
+
+        return Time.now - totalSecs
     end
 end
