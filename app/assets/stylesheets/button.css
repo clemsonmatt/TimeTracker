@@ -28,8 +28,22 @@
 }
 
 .btn-round-danger {
-  color: #ffffff;
-  background-color: #e51c23;
+    color: #ffffff;
+    background-color: #e51c23;
+}
+.btn-round-danger-simple,
+.btn-round-danger-simple:hover {
+    color: #e51c23 !important;
+    background-color: #fff;
+}
+.btn-round-success {
+    color: #ffffff;
+    background-color: #4caf50;
+}
+.btn-round-success-simple,
+.btn-round-success-simple:hover {
+    color: #4caf50 !important;
+    background-color: #fff;
 }
 
 .btn-round-sm {

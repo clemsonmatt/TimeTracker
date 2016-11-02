@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
-  get 'entry/new'
-
-  get 'sessions/new'
-
     resources :person,
         :landing,
         :sessions,
         :entry
 
+    # entries
+    get '/entries/:id/pause' => 'entry#pause', as: 'pause_entries'
+
     root 'landing#index'
 
+    # session
     get 'signup', to: 'users#new', as: 'signup'
     get 'login', to: 'sessions#new', as: 'login'
     get 'logout', to: 'sessions#destroy', as: 'logout'

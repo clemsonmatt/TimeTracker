@@ -26,6 +26,28 @@ class EntryController < ApplicationController
         end
     end
 
+    def pause
+        @entry = Entry.find(params[:id])
+
+        @entry.end = DateTime.now
+
+        totalTime = @entry.total_time
+        diffTime  = @entry.end - @entry.start
+
+        if totalTime
+            totalTime = totalTime + diffTime
+        else
+            totalTime = diffTime
+        end
+
+        totalTime = Time.at(totalTime).utc.strftime "%H:%M:%S"
+
+        @entry.total_time = totalTime
+        @entry.save
+
+        redirect_to person_path(@entry.person)
+    end
+
     private
         def entry_params
             params.require(:entry).permit(:start, :end, :title, :description, :current)
