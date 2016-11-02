@@ -3,7 +3,7 @@ class EntryController < ApplicationController
 
     def new
         # add method in entry.rb to find all entries for a user (does joins for clients and projects)
-        @entries = Entry.all.where(person: @user)
+        @entries = Entry.all.where(person: @user).order(start: :desc).take(10)
 
         @entry = Entry.new
     end
