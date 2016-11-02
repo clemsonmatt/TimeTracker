@@ -13,6 +13,7 @@ class EntryController < ApplicationController
 
         @entry        = Entry.new(entry_params)
         @entry.person = @user
+        @entry.status = 'created'
 
         if entry_params['current'] == '1'
             # set to the current datetime
@@ -29,7 +30,8 @@ class EntryController < ApplicationController
     def pause
         @entry = Entry.find(params[:id])
 
-        @entry.end = DateTime.now
+        @entry.end    = DateTime.now
+        @entry.status = 'paused'
 
         totalTime = @entry.total_time
         diffTime  = @entry.end - @entry.start
@@ -40,9 +42,23 @@ class EntryController < ApplicationController
             totalTime = diffTime
         end
 
-        totalTime = Time.at(totalTime).utc.strftime "%H:%M:%S"
+        totalTime = Time.at(totalTime).strftime "%H:%M:%S"
 
         @entry.total_time = totalTime
+        @entry.save
+
+        redirect_to person_path(@entry.person)
+    end
+
+    def status_change
+        @entry        = Entry.find(params[:id])
+        @entry.status = params[:status]
+
+        if params[:status] == 'restart'
+            @entry.start = DateTime.now
+            @entry.end   = nil
+        end
+
         @entry.save
 
         redirect_to person_path(@entry.person)
