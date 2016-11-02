@@ -51,7 +51,8 @@
                             <%= @user.first_name %>
                         <% end %>
                     </div>
-                    Header
+                    <%# defined? header_title ? header_title : 'Header Needed' %>
+                    <%= yield :header_title %>
                 </div>
 
                 <!-- content -->
