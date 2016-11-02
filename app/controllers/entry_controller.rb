@@ -27,6 +27,18 @@ class EntryController < ApplicationController
         end
     end
 
+    def destroy
+        entry  = Entry.find(params[:id])
+        person = entry.person
+        entry.destroy
+
+        if params[:currentRoute] == 'entry'
+            return redirect_to new_entry_path
+        end
+
+        redirect_to person_path(person)
+    end
+
     def pause
         @entry = Entry.find(params[:id])
 
