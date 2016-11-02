@@ -10,33 +10,7 @@
                 <%= material_icon.update %>
                 Recent Entries
             </div>
-            <ul class="list-group">
-                <% if @entries.to_s.length > 0 %>
-                    <% @entries.each do |e| %>
-                        <li class="list-group-item">
-                            <h4 class="list-group-item-header">
-                                <%= e.title %>
-                                <small>
-                                    <% if e.end == nil || e.start.strftime('%m/%d/%y') == e.end.strftime('%m/%d/%y') %>
-                                        <%= e.start.strftime('%m/%d/%y') %>
-                                    <% else %>
-                                        <%= e.start.strftime('%m/%d/%y') %> &mdash; <%= e.end.strftime('%m/%d/%y') %>
-                                    <% end %>
-                                </small>
-                            </h4>
-                            <p class="list-group-item-body text-muted">
-                                <%= e.start.strftime('%I:%M %p') %> &mdash; <%= e.end ? e.end.strftime('%H:%I') : 'Now' %>
-                                <% if e.description %>
-                                    <br />
-                                    <%= e.description %>
-                                <% end %>
-                            </p>
-                        </li>
-                    <% end %>
-                <% else %>
-                    <li class="list-group-item">None</li>
-                <% end %>
-            </ul>
+            <%= render "/entry/entries" %>
         </div>
     </div>
     <div class="col-md-6">

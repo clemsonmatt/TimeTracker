@@ -36,46 +36,7 @@
                 <%= material_icon.update %>
                 Recent Entries
             </div>
-            <table class="table table-striped table-hover">
-                <% if @entries.to_s.length > 0 %>
-                    <% @entries.each do |e| %>
-                        <tr>
-                            <td>
-                                <h4 class="list-group-item-header">
-                                    <%= e.title %>
-                                    <small>
-                                        <% if e.end == nil || e.start.strftime('%m/%d/%y') == e.end.strftime('%m/%d/%y') %>
-                                            <%= e.start.strftime('%m/%d/%y') %>
-                                        <% else %>
-                                            <%= e.start.strftime('%m/%d/%y') %> &mdash; <%= e.end.strftime('%m/%d/%y') %>
-                                        <% end %>
-                                    </small>
-                                </h4>
-                                <% if e.description %>
-                                    <p class="list-group-item-body text-muted">
-                                        <%= e.description %>
-                                    </p>
-                                <% end %>
-                            </td>
-                            <td class="text-center" style="width: 1%;">
-                                <h4 class="js-entry-time-ellapsed" data-start-time="<%= e.start %>"></h4>
-                                <a href="" class="btn-round btn-round-danger btn-round-sm pull-right" style="margin: -5px 15px 0px 0px;">
-                                    <%= material_icon.stop.md_18 %>
-                                </a>
-                                <a href="" class="btn-round btn-round-default btn-round-sm" style="margin: -5px 0px 0px 15px;">
-                                    <%= material_icon.pause.md_18 %>
-                                </a>
-                            </td>
-                        </tr>
-                    <% end %>
-                <% else %>
-                    <tr>
-                        <td>
-                            None
-                        </td>
-                    </tr>
-                <% end %>
-            </table>
+            <%= render "/entry/entries" %>
         </div>
     </div>
     <div class="col-md-8">
