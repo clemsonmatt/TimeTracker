@@ -47,6 +47,10 @@ class EntryController < ApplicationController
         @entry.total_time = totalTime
         @entry.save
 
+        if params[:currentRoute] == 'entry'
+            return redirect_to new_entry_path
+        end
+
         redirect_to person_path(@entry.person)
     end
 
@@ -60,6 +64,10 @@ class EntryController < ApplicationController
         end
 
         @entry.save
+
+        if params[:currentRoute] == 'entry'
+            return redirect_to new_entry_path
+        end
 
         redirect_to person_path(@entry.person)
     end

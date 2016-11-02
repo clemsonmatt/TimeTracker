@@ -5,8 +5,8 @@ Rails.application.routes.draw do
         :entry
 
     # entries
-    get '/entries/:id/pause' => 'entry#pause', as: 'pause_entries'
-    get '/entries/:id/:status/status-change' => 'entry#status_change', as: 'status_entries'
+    get '/entries/:id/:currentRoute/pause' => 'entry#pause', as: 'pause_entries'
+    get '/entries/:id/:status/:currentRoute/status-change' => 'entry#status_change', as: 'status_entries'
 
     root 'landing#index'
 

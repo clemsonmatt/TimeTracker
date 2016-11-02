@@ -29,19 +29,19 @@
                         </center>
                     <% elsif e.status == 'paused' %>
                         <h4><%= e.total_time.strftime('%H:%M:%S') %></h4>
-                        <%= link_to status_entries_path(id: e, status: 'restart'), class: "btn-round btn-round-default btn-round-sm pull-left", style: "margin-right: 9px" do %>
+                        <%= link_to status_entries_path(id: e, status: 'restart', currentRoute: controller_name), class: "btn-round btn-round-default btn-round-sm pull-left", style: "margin-right: 9px" do %>
                             <%= material_icon.replay.md_18 %>
                         <% end %>
                         <a href="" class="btn-round btn-round-danger-simple btn-round-sm pull-left" style="margin-right: 9px;">
                             <%= material_icon.delete_forever.md_18 %>
                         </a>
-                        <%= link_to status_entries_path(id: e, status: 'complete'), class: "btn-round btn-round-success-simple btn-round-sm pull-left" do %>
+                        <%= link_to status_entries_path(id: e, status: 'complete', currentRoute: controller_name), class: "btn-round btn-round-success-simple btn-round-sm pull-left" do %>
                             <%= material_icon.check.md_18 %>
                         <% end %>
                     <% else %>
                         <h4 class="js-entry-time-ellapsed" data-start-time="<%= e.active_time %>"></h4>
                         <center>
-                            <%= link_to pause_entries_path(id: e), class: "btn-round btn-round-default btn-round-sm", style: "margin-top: -5px;" do %>
+                            <%= link_to pause_entries_path(id: e, currentRoute: controller_name), class: "btn-round btn-round-default btn-round-sm", style: "margin-top: -5px;" do %>
                                 <%= material_icon.pause.md_18 %>
                             <% end %>
                         </center>
