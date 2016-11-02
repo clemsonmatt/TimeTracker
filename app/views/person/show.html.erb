@@ -3,7 +3,7 @@
 <ol class="breadcrumb">
     <% if @user == @person %>
         <div class="links">
-            <%= link_to logout_path, class: "btn-round btn-round-sm" do %>
+            <%= link_to logout_path, class: "btn-round btn-round-default btn-round-sm" do %>
                 <%= material_icon.power_settings_new.md_18 %>
             <% end %>
         </div>
@@ -11,7 +11,6 @@
     <li><%= link_to "People", person_index_path %></li>
     <li class="active"><%= @person %></li>
 </ol>
-
 
 <div class="panel panel-default">
     <div class="panel-body">
