@@ -65,6 +65,15 @@ class EntryController < ApplicationController
             secs  += totalTime[2].to_i
         end
 
+        if secs > 59
+            mins += secs / 59
+            secs = secs % 59
+        end
+        if mins > 59
+            hours += mins / 59
+            mins = mins % 59
+        end
+
         hours = hours < 10 ? '0' + hours.to_s : hours
         mins  = mins < 10 ? '0' + mins.to_s : mins
         secs  = secs < 10 ? '0' + secs.to_s : secs
