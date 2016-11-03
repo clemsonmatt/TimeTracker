@@ -3,9 +3,10 @@
         <% @entries.each do |e| %>
             <tr>
                 <td>
-                    <h4 class="list-group-item-header">
+                    <h4 class="list-group-item-header" style="line-height: 20px;">
                         <%= e.title %>
-                        <small>
+                        <br />
+                        <small style="font-size: 0.6em;">
                             <% if e.end == nil || e.start.strftime('%m/%d/%y') == e.end.strftime('%m/%d/%y') %>
                                 <%= e.start.strftime('%m/%d/%y') %>
                             <% else %>
@@ -14,7 +15,7 @@
                         </small>
                     </h4>
                     <% if e.description %>
-                        <p class="list-group-item-body text-muted">
+                        <p class="list-group-item-body text-muted" style="line-height: 15px;">
                             <%= e.description %>
                         </p>
                     <% end %>

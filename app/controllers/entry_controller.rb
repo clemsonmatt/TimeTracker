@@ -57,12 +57,17 @@ class EntryController < ApplicationController
 
         secs = diffTime.to_i
 
+        # add to total time
         if totalTime
             totalTime = totalTime.split(':')
             hours += totalTime[0].to_i
             mins  += totalTime[1].to_i
             secs  += totalTime[2].to_i
         end
+
+        hours = hours < 10 ? '0' + hours.to_s : hours
+        mins  = mins < 10 ? '0' + mins.to_s : mins
+        secs  = secs < 10 ? '0' + secs.to_s : secs
 
         totalTime = hours.to_s + ":" + mins.to_s + ":" + secs.to_s
 
