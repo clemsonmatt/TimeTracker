@@ -6,6 +6,11 @@ class Entry < ApplicationRecord
     attr_accessor :current
 
     def active_time
+        if self.start == nil
+            # not started yet
+            return '00:00:00'
+        end
+
         totalTime = self.total_time
         diffTime  = Time.now - self.start
 

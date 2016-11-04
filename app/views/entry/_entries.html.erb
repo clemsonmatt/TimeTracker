@@ -7,7 +7,9 @@
                         <%= e.title %>
                         <br />
                         <small style="font-size: 0.6em;">
-                            <% if e.end == nil || e.start.strftime('%m/%d/%y') == e.end.strftime('%m/%d/%y') %>
+                            <% if e.start == nil %>
+                                <%= e.created_at.strftime('%m/%d/%y') %>
+                            <% elsif e.end == nil || e.start.strftime('%m/%d/%y') == e.end.strftime('%m/%d/%y') %>
                                 <%= e.start.strftime('%m/%d/%y') %>
                             <% else %>
                                 <%= e.start.strftime('%m/%d/%y') %> &mdash; <%= e.end.strftime('%m/%d/%y') %>
@@ -21,14 +23,14 @@
                     <% end %>
                 </td>
                 <td class="text-center" style="width: 1%;">
-                    <% if e.status == 'complete' %>
+                    <% if e.status == 'locked' %>
                         <h4><%= e.total_time %></h4>
                         <center class="text-muted">
                             <%= material_icon.lock %>
                         </center>
                     <% elsif e.status == 'paused' %>
                         <h4><%= e.total_time %></h4>
-                        <%= link_to status_entries_path(id: e, status: 'restart', currentRoute: controller_name), class: "btn-round btn-round-default btn-round-sm pull-left", style: "margin-right: 9px" do %>
+                        <%= link_to status_entries_path(id: e, status: 'active', currentRoute: controller_name), class: "btn-round btn-round-default btn-round-sm pull-left", style: "margin-right: 9px" do %>
                             <%= material_icon.replay.md_18 %>
                         <% end %>
                         <%= link_to destroy_entries_path(id: e, currentRoute: controller_name), method: :delete, class: "btn-round btn-round-danger-simple btn-round-sm pull-left", style: "margin-right: 9px;" do %>
@@ -37,6 +39,13 @@
                         <%= link_to edit_entry_path(id: e), class: "btn-round btn-round-warning-simple btn-round-sm pull-left" do %>
                             <%= material_icon.edit.md_18 %>
                         <% end %>
+                    <% elsif e.status == 'created' %>
+                        <h4>00:00:00</h4>
+                        <center>
+                            <%= link_to status_entries_path(id: e, status: 'active', currentRoute: controller_name), class: "btn-round btn-round-sm", style: "margin-top: -5px" do %>
+                                <%= material_icon.play_arrow.md_18 %>
+                            <% end %>
+                        </center>
                     <% else %>
                         <h4 class="js-entry-time-ellapsed" data-start-time="<%= e.active_time %>"></h4>
                         <center>

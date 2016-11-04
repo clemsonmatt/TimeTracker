@@ -109,7 +109,7 @@ class EntryController < ApplicationController
         @entry        = Entry.find(params[:id])
         @entry.status = params[:status]
 
-        if params[:status] == 'restart'
+        if params[:status] == 'active'
             @entry.start = DateTime.now
             @entry.end   = nil
         end
@@ -130,6 +130,6 @@ class EntryController < ApplicationController
 
         def all_entries
             # add method in entry.rb to find all entries for a user (does joins for clients and projects)
-            @entries = Entry.all.where(person: @user).order(start: :desc).take(10)
+            @entries = Entry.all.where(person: @user).order(created_at: :desc).take(10)
         end
 end
