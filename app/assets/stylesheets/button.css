@@ -45,6 +45,15 @@
     color: #4caf50 !important;
     background-color: #fff;
 }
+.btn-round-warning {
+    color: #fff;
+    background-color: #ff9800;
+}
+.btn-round-warning-simple,
+.btn-round-warning-simple:hover {
+    color: #ff9800 !important;
+    background-color: #fff;
+}
 
 .btn-round-sm {
     width: 25px;

@@ -16,6 +16,9 @@
  *= require rails_bootstrap_forms
  */
 
+.breadcrumb {
+    margin-top: -15px;
+}
 .breadcrumb .links {
     float: right;
 }

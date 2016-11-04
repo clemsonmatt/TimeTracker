@@ -35,7 +35,7 @@
                     </div>
                 <% end %>
 
-                <%= bootstrap_form_for @entry, url: {:action => "create"} do |f| %>
+                <%= bootstrap_form_for 'entry', url: {action: 'create'} do |f| %>
                     <%= f.text_field :title, class: "form-control" %>
                     <%= f.text_area :description, class: "form-control" %>
                     <%= f.check_box :current, {:label => "Start now", checked: true} %>

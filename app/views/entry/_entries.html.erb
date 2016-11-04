@@ -23,10 +23,8 @@
                 <td class="text-center" style="width: 1%;">
                     <% if e.status == 'complete' %>
                         <h4><%= e.total_time %></h4>
-                        <center>
-                            <a href="" class="btn-round btn-round-sm">
-                                <%= material_icon.edit.md_18 %>
-                            </a>
+                        <center class="text-muted">
+                            <%= material_icon.lock %>
                         </center>
                     <% elsif e.status == 'paused' %>
                         <h4><%= e.total_time %></h4>
@@ -36,9 +34,12 @@
                         <%= link_to destroy_entries_path(id: e, currentRoute: controller_name), method: :delete, class: "btn-round btn-round-danger-simple btn-round-sm pull-left", style: "margin-right: 9px;" do %>
                             <%= material_icon.delete_forever.md_18 %>
                         <% end %>
-                        <%= link_to status_entries_path(id: e, status: 'complete', currentRoute: controller_name), class: "btn-round btn-round-success-simple btn-round-sm pull-left" do %>
-                            <%= material_icon.check.md_18 %>
-                        <% end %>
+                        <a href="" class="btn-round btn-round-warning-simple btn-round-sm pull-left">
+                            <%= material_icon.edit.md_18 %>
+                        </a>
+                        <%# link_to status_entries_path(id: e, status: 'complete', currentRoute: controller_name), class: "btn-round btn-round-success-simple btn-round-sm pull-left" do %>
+                            <%# material_icon.check.md_18 %>
+                        <%# end %>
                     <% else %>
                         <h4 class="js-entry-time-ellapsed" data-start-time="<%= e.active_time %>"></h4>
                         <center>

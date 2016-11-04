@@ -25,9 +25,8 @@
                         </div>
 
                         <ul id="side-menu" class="nav">
+                            <li><%= link_to "Entries", new_entry_path %></li>
                             <li><a href="">Projects</a></li>
-                            <li><a href="">Clients</a></li>
-                            <li><a href="">Teams</a></li>
                             <li><a href="">Reports</a></li>
                             <li><%= link_to "People", person_index_path %></li>
                         </ul>
@@ -51,7 +50,6 @@
                             <%= @user.first_name %>
                         <% end %>
                     </div>
-                    <%# defined? header_title ? header_title : 'Header Needed' %>
                     <%= yield :header_title %>
                 </div>
 
