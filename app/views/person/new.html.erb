@@ -1,10 +1,9 @@
-<div class="bg-header">
-    <h2>People</h2>
-    <ol class="breadcrumb">
-        <li><%= link_to "People", person_index_path %></li>
-        <li class="active">Add Person</li>
-    </ol>
-</div>
+<%= render "layout" %>
+
+<ol class="breadcrumb">
+    <li><%= link_to "People", person_index_path %></li>
+    <li class="active">Add Person</li>
+</ol>
 
 <div class="panel panel-default">
     <div class="panel-body">
@@ -36,7 +35,7 @@
                     <%= f.password_field :password_confirmation %>
                 </div>
             </div>
-            <%= f.submit :class => 'btn btn-warning' %>
+            <%= f.submit :class => 'btn btn-primary' %>
         <% end %>
     </div>
 </div>

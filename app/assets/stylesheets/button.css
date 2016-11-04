@@ -1,0 +1,82 @@
+.btn-round {
+    display: block;
+    width: 50px;
+    height: 50px;
+    line-height: 58px;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    background: #2196f3;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    transition: box-shadow 0.2s ease-in-out;
+    font-size: 24px;
+    font-weight: bold;
+}
+.btn-round:hover {
+    box-shadow: 0 5px 12px 0 rgba(0,0,0,0.16),0 5px 18px 0 rgba(0,0,0,0.12);
+    text-decoration: none;
+    color: #fff;
+}
+
+.btn-round-default {
+    color: #2196f3;
+    background: #fff;
+}
+.btn-round-default:hover {
+    color: #2196f3 !important;
+}
+
+.btn-round-danger {
+    color: #ffffff;
+    background-color: #e51c23;
+}
+.btn-round-danger-simple,
+.btn-round-danger-simple:hover {
+    color: #e51c23 !important;
+    background-color: #fff;
+}
+.btn-round-success {
+    color: #ffffff;
+    background-color: #4caf50;
+}
+.btn-round-success-simple,
+.btn-round-success-simple:hover {
+    color: #4caf50 !important;
+    background-color: #fff;
+}
+.btn-round-warning {
+    color: #fff;
+    background-color: #ff9800;
+}
+.btn-round-warning-simple,
+.btn-round-warning-simple:hover {
+    color: #ff9800 !important;
+    background-color: #fff;
+}
+
+.btn-round-sm {
+    width: 25px;
+    height: 25px;
+    line-height: 35px;
+    font-size: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 8px 0 rgba(0,0,0,0.12);
+}
+.btn-round-sm:hover {
+    box-shadow: 0 3px 7px 0 rgba(0,0,0,0.16),0 3px 12px 0 rgba(0,0,0,0.12);
+    text-decoration: none;
+    color: #fff;
+}
+
+.btn-round-md {
+    width: 35px;
+    height: 35px;
+    line-height: 37px;
+    font-size: 15px;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.16),0 3px 10px 0 rgba(0,0,0,0.12);
+}
+.btn-round-md:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.16),0 4px 14px 0 rgba(0,0,0,0.12);
+    text-decoration: none;
+    color: #fff;
+}

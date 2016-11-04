@@ -1,20 +1,75 @@
-<div class="bg-header">
-    <h2>People</h2>
-    <ol class="breadcrumb">
+<%= render "layout" %>
+
+<ol class="breadcrumb">
+    <% if @user == @person %>
         <div class="links">
-            <%= link_to edit_person_path, class: 'btn btn-sm btn-warning' do %>
-                <%= material_icon.edit %> Edit
+            <%= link_to logout_path, class: "btn-round btn-round-default btn-round-sm" do %>
+                <%= material_icon.power_settings_new.md_18 %>
             <% end %>
         </div>
-        <li><%= link_to "People", person_index_path %></li>
-        <li class="active"><%= @person %></li>
-    </ol>
-</div>
+    <% end %>
+    <li><%= link_to "People", person_index_path %></li>
+    <li class="active"><%= @person %></li>
+</ol>
 
 <div class="panel panel-default">
     <div class="panel-body">
-        <legend>
-            <h3 class="text-warning"><%= @person %></h3>
-        </legend>
+        <h3 class="text-primary">
+            <div class="pull-right">
+                <%= link_to edit_person_path, class: 'btn-round' do %>
+                    <%= material_icon.edit %>
+                <% end %>
+            </div>
+            <%= @person %>
+        </h3>
+        <p>
+            <%= @person.email %>
+            <br />
+            <%= @person.phone %>
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-5">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <%= material_icon.update %>
+                Recent Entries
+            </div>
+            <%= render "/entry/entries" %>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                chart
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <%= material_icon.work %>
+                        My Projects
+                    </div>
+                    <div class="panel-body">
+                        None
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <%= material_icon.group_work %>
+                        Shared Projects
+                    </div>
+                    <div class="panel-body">
+                        None
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

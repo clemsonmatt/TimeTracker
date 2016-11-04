@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
     resources :person,
         :landing,
-        :sessions
+        :sessions,
+        :entry
+
+    # entries
+    get '/entries/:id/:currentRoute/pause' => 'entry#pause', as: 'pause_entries'
+    get '/entries/:id/:status/:currentRoute/status-change' => 'entry#status_change', as: 'status_entries'
+    delete '/entries/:id/:currentRoute/destroy' => 'entry#destroy', as: 'destroy_entries'
 
     root 'landing#index'
 
+    # session
     get 'signup', to: 'users#new', as: 'signup'
     get 'login', to: 'sessions#new', as: 'login'
     get 'logout', to: 'sessions#destroy', as: 'logout'
