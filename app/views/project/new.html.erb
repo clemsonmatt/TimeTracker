@@ -1,0 +1,47 @@
+<%= render "layout" %>
+
+<ol class="breadcrumb">
+    <li>Projects</li>
+    <li class="active">Add Project</li>
+</ol>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <%= material_icon.update %>
+                Recent Projects
+            </div>
+            <%= render "projects" %>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <%= material_icon.add %>
+                Add Project
+            </div>
+            <div class="panel-body">
+                <% if @project.errors.any? %>
+                    <div id="error_explanation">
+                        <h4 class="text-danger">
+                            <%= pluralize(@project.errors.count, "error") %> prohibited this person from being saved:
+                        </h4>
+                        <ul>
+                            <% @project.errors.full_messages.each do |msg| %>
+                                <li class="text-danger"><%= msg %></li>
+                            <% end %>
+                        </ul>
+                    </div>
+                <% end %>
+
+                <%= bootstrap_form_for @project, url: {action: 'create'} do |f| %>
+                    <%= f.text_field :title, class: "form-control" %>
+                    <%= f.text_area :description, class: "form-control" %>
+                    <br />
+                    <button class="btn btn-primary">Save Project</button>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102213920) do
+ActiveRecord::Schema.define(version: 20161104204504) do
 
   create_table "entries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "person_id"
@@ -35,5 +35,17 @@ ActiveRecord::Schema.define(version: 20161102213920) do
     t.string   "password_digest"
   end
 
+  create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.text     "description", limit: 65535
+    t.boolean  "private"
+    t.string   "status"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "person_id"
+    t.index ["person_id"], name: "index_projects_on_person_id", using: :btree
+  end
+
   add_foreign_key "entries", "people"
+  add_foreign_key "projects", "people"
 end

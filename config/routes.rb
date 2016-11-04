@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+
     resources :person,
         :landing,
         :sessions,
-        :entry
+        :entry,
+        :project
 
     # entries
     get '/entries/:id/:currentRoute/pause' => 'entry#pause', as: 'pause_entries'

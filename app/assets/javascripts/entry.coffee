@@ -37,12 +37,6 @@ calculateDiff = (startDate) ->
     hours + ':' + minutes + ':' + seconds
 
 $(document).on 'turbolinks:load', ->
-    datetime = $('.js-entry-time-ellapsed')
-    update()
-    setInterval update, 1000
-    return
-
-$(document).ready ->
     completeBox    = $('#js-complete')
     currentBox     = $('#js-current')
     completeFields = $('#js-complete-fields')
@@ -52,3 +46,10 @@ $(document).ready ->
             currentBox.prop('checked', false)
 
         completeFields.toggle()
+
+
+    datetime = $('.js-entry-time-ellapsed')
+    update()
+    setInterval update, 1000
+    
+    return
