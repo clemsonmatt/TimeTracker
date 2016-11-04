@@ -16,3 +16,9 @@
 //= require_tree .
 //= require moment
 //= require turbolinks
+
+$(document).ready(function(){
+    $('.datepicker').datepicker({
+        format: 'yyyy-mm-dd'
+    });
+})

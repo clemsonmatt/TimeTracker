@@ -4,6 +4,7 @@ class Entry < ApplicationRecord
     validates :title, presence: true
 
     attr_accessor :current
+    attr_accessor :complete
 
     def active_time
         if self.start == nil

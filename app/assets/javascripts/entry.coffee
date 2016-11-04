@@ -9,7 +9,7 @@ update = ->
         diffTime = calculateDiff($(value).data('start-time'))
 
         $(value).html diffTime
-        
+
         return
     return
 
@@ -41,3 +41,14 @@ $(document).on 'turbolinks:load', ->
     update()
     setInterval update, 1000
     return
+
+$(document).ready ->
+    completeBox    = $('#js-complete')
+    currentBox     = $('#js-current')
+    completeFields = $('#js-complete-fields')
+
+    completeBox.click ->
+        if currentBox.prop('checked')
+            currentBox.prop('checked', false)
+
+        completeFields.toggle()

@@ -18,8 +18,10 @@ class EntryController < ApplicationController
         @entry.person = @user
         @entry.status = 'created'
 
-        if entry_params['current'] == '1'
-            # set to the current datetime
+        if entry_params['complete'] == '1'
+            # mark as paused since completed
+            @entry.status = 'paused'
+        else
             @entry.start = DateTime.now
         end
 
@@ -125,11 +127,11 @@ class EntryController < ApplicationController
 
     private
         def entry_params
-            params.require(:entry).permit(:start, :end, :title, :description, :current, :total_time)
+            params.require(:entry).permit(:start, :end, :title, :description, :current, :complete, :total_time)
         end
 
         def all_entries
             # add method in entry.rb to find all entries for a user (does joins for clients and projects)
-            @entries = Entry.all.where(person: @user).order(created_at: :desc).take(10)
+            @entries = Entry.all.where(person: @user).order(start: :desc).take(10)
         end
 end
