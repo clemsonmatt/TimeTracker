@@ -39,7 +39,8 @@
                 <%= bootstrap_form_for @entry, url: {action: 'update'} do |f| %>
                     <%= f.text_field :title, class: "form-control" %>
                     <%= f.text_area :description, class: "form-control" %>
-                    <%= f.text_field :total_time, class: "form-control" %>
+                    <%= f.text_field :start, class: "datepicker form-control", placeholder: "yyyy-mm-dd" %>
+                    <%= f.text_field :total_time, class: "form-control", placeholder: "hh:mm:ss" %>
                     <br />
                     <button class="btn btn-primary">Save Entry</button>
                 <% end %>

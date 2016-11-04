@@ -9,10 +9,8 @@
                         <small style="font-size: 0.6em;">
                             <% if e.start == nil %>
                                 <%= e.created_at.strftime('%m/%d/%y') %>
-                            <% elsif e.end == nil || e.start.strftime('%m/%d/%y') == e.end.strftime('%m/%d/%y') %>
-                                <%= e.start.strftime('%m/%d/%y') %>
                             <% else %>
-                                <%= e.start.strftime('%m/%d/%y') %> &mdash; <%= e.end.strftime('%m/%d/%y') %>
+                                <%= e.start.strftime('%m/%d/%y') %>
                             <% end %>
                         </small>
                     </h4>
