@@ -2,14 +2,17 @@ class EntryController < ApplicationController
     before_action :logged_in?
 
     def new
-        # add method in entry.rb to find all entries for a user (does joins for clients and projects)
-        @entries = Entry.all.where(person: @user).order(start: :desc).take(10)
+        @entries = all_entries
+        @entry   = Entry.new
+    end
 
-        @entry = Entry.new
+    def edit
+        @entries = all_entries
+        @entry   = Entry.find(params[:id])
     end
 
     def create
-        @entries = Entry.find_by(person: @user)
+        @entries = all_entries
 
         @entry        = Entry.new(entry_params)
         @entry.person = @user
@@ -24,6 +27,18 @@ class EntryController < ApplicationController
             redirect_to new_entry_path
         else
             render "new"
+        end
+    end
+
+    def update
+        @entries = all_entries
+
+        @entry = Entry.find(params[:id])
+
+        if @entry.update(entry_params)
+            redirect_to new_entry_path
+        else
+            render "edit"
         end
     end
 
@@ -110,6 +125,11 @@ class EntryController < ApplicationController
 
     private
         def entry_params
-            params.require(:entry).permit(:start, :end, :title, :description, :current)
+            params.require(:entry).permit(:start, :end, :title, :description, :current, :total_time)
+        end
+
+        def all_entries
+            # add method in entry.rb to find all entries for a user (does joins for clients and projects)
+            @entries = Entry.all.where(person: @user).order(start: :desc).take(10)
         end
 end

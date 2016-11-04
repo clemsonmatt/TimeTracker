@@ -2,7 +2,8 @@
 
 <ol class="breadcrumb">
     <li>Entries</li>
-    <li class="active">Add Entry</li>
+    <li><%= @entry.title %></li>
+    <li class="active">Edit Entry</li>
 </ol>
 
 <div class="row">
@@ -18,8 +19,8 @@
     <div class="col-md-6">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <%= material_icon.add %>
-                Add Entry
+                <%= material_icon.edit %>
+                Edit Entry
             </div>
             <div class="panel-body">
                 <% if @entry.errors.any? %>
@@ -35,10 +36,10 @@
                     </div>
                 <% end %>
 
-                <%= bootstrap_form_for @entry, url: {action: 'create'} do |f| %>
+                <%= bootstrap_form_for @entry, url: {action: 'update'} do |f| %>
                     <%= f.text_field :title, class: "form-control" %>
                     <%= f.text_area :description, class: "form-control" %>
-                    <%= f.check_box :current, {:label => "Start now", checked: true} %>
+                    <%= f.text_field :total_time, class: "form-control" %>
                     <br />
                     <button class="btn btn-primary">Save Entry</button>
                 <% end %>
