@@ -1,5 +1,6 @@
 class Entry < ApplicationRecord
     belongs_to :person
+    belongs_to :project
 
     validates :title, presence: true
 

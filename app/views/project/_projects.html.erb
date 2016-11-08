@@ -12,7 +12,7 @@
                         </p>
                     <% end %>
                 </td>
-                <td class="text-center" style="width: 160px;">
+                <td class="text-center" style="width: 120px;">
                     <% if proj.status == 'locked' %>
                         <h4>4 entries</h4>
                         <center class="text-muted">
@@ -20,14 +20,11 @@
                         </center>
                     <% else %>
                         <h4>4 entries</h4>
-                        <a href="" class="btn-round btn-round-default btn-round-sm pull-left" style="margin-right: 9px">
-                            <%= material_icon.view_list.md_18 %>
-                        </a>
+                        <%= link_to project_path(proj), class: "btn-round btn-round-default btn-round-sm pull-left", style: "margin-right: 9px" do %>
+                            <%= material_icon.description.md_18 %>
+                        <% end %>
                         <a href="" class="btn-round btn-round-warning-simple btn-round-sm pull-left" style="margin-right: 9px">
                             <%= material_icon.edit.md_18 %>
-                        </a>
-                        <a href="" class="btn-round btn-round-danger-simple btn-round-sm pull-left" style="margin-right: 9px">
-                            <%= material_icon.archive.md_18 %>
                         </a>
                         <a href="" class="btn-round btn-round-grey-simple btn-round-sm pull-left" style="margin-right: 9px">
                             <%= material_icon.lock.md_18 %>

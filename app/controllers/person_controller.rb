@@ -8,7 +8,8 @@ class PersonController < ApplicationController
     def show
         @person = Person.find(params[:id])
 
-        @entries = Entry.all.where(person: @person).order(start: :desc).take(10)
+        @entries  = Entry.all.where(person: @person).order(start: :desc).take(10)
+        @projects = Project.all.where(person: @user).order(created_at: :desc).take(10)
     end
 
     def new

@@ -1,6 +1,10 @@
 class ProjectController < ApplicationController
     before_action :logged_in?
-    
+
+    def show
+        @project = Project.find(params[:id])
+    end
+
     def new
         @projects = all_projects
         @project  = Project.new
