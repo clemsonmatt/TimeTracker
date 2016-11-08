@@ -1,7 +1,12 @@
 <%= render "layout" %>
 
 <ol class="breadcrumb">
-    <li>Projects</li>
+    <div class="links">
+        <%= link_to edit_project_path(@project), class: "btn-round btn-round-sm btn-round-warning-simple" do %>
+            <%= material_icon.edit.md_18 %>
+        <% end %>
+    </div>
+    <li><%= link_to 'Projects', new_project_path %></li>
     <li class="active"><%= @project %></li>
 </ol>
 

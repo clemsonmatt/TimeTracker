@@ -2,7 +2,8 @@
 
 <ol class="breadcrumb">
     <li><%= link_to 'Projects', new_project_path %></li>
-    <li class="active">Add Project</li>
+    <li><%= link_to @project.title, project_path(@project) %></li>
+    <li class="active">Edit Project</li>
 </ol>
 
 <div class="row">
@@ -19,7 +20,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <%= material_icon.add %>
-                Add Project
+                Edit Project
             </div>
             <div class="panel-body">
                 <% if @project.errors.any? %>
@@ -35,7 +36,7 @@
                     </div>
                 <% end %>
 
-                <%= bootstrap_form_for @project, url: {action: "create"} do |f| %>
+                <%= bootstrap_form_for @project, url: {action: "update"}, method: :patch do |f| %>
                     <%= f.text_field :title, class: "form-control" %>
                     <%= f.text_area :description, class: "form-control" %>
                     <br />

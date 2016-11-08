@@ -10,6 +10,11 @@ class ProjectController < ApplicationController
         @project  = Project.new
     end
 
+    def edit
+        @projects = all_projects
+        @project  = Project.find(params[:id])
+    end
+
     def create
         @projects = all_projects
 
@@ -21,6 +26,17 @@ class ProjectController < ApplicationController
             redirect_to new_project_path
         else
             render 'new'
+        end
+    end
+
+    def update
+        @projects = all_projects
+        @project  = Project.find(params[:id])
+
+        if @project.update(project_params)
+            redirect_to project_path(@project)
+        else
+            render 'edit'
         end
     end
 

@@ -23,9 +23,9 @@
                         <%= link_to project_path(proj), class: "btn-round btn-round-default btn-round-sm pull-left", style: "margin-right: 9px" do %>
                             <%= material_icon.description.md_18 %>
                         <% end %>
-                        <a href="" class="btn-round btn-round-warning-simple btn-round-sm pull-left" style="margin-right: 9px">
+                        <%= link_to edit_project_path(proj), class: "btn-round btn-round-warning-simple btn-round-sm pull-left", style: "margin-right: 9px" do %>
                             <%= material_icon.edit.md_18 %>
-                        </a>
+                        <% end %>
                         <a href="" class="btn-round btn-round-grey-simple btn-round-sm pull-left" style="margin-right: 9px">
                             <%= material_icon.lock.md_18 %>
                         </a>
