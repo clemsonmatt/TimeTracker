@@ -34,10 +34,17 @@ class ProjectController < ApplicationController
         @project  = Project.find(params[:id])
 
         if @project.update(project_params)
-            redirect_to project_path(@project)
+            redirect_to new_project_path
         else
             render 'edit'
         end
+    end
+
+    def destroy
+        project = Project.find(params[:id])
+        project.destroy
+
+        redirect_to new_project_path
     end
 
     private

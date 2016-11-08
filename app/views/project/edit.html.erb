@@ -19,6 +19,11 @@
     <div class="col-md-6">
         <div class="panel panel-default">
             <div class="panel-heading">
+                <div class="pull-right">
+                    <%= link_to project_path(@project), method: :delete, class: "btn-round btn-round-md btn-round-danger" do %>
+                        <%= material_icon.delete_forever %>
+                    <% end %>
+                </div>
                 <%= material_icon.add %>
                 Edit Project
             </div>

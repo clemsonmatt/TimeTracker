@@ -12,15 +12,8 @@
 
 <div class="row">
     <div class="col-md-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <%= material_icon.timer %>
-                Entries
-            </div>
-            <div class="panel-body"></div>
-        </div>
-    </div>
-    <div class="col-md-6">
+        <h2><%= @project %></h2>
+        <blockquote><%= @project.description %></blockquote>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <%= material_icon.multiline_chart %>
@@ -32,6 +25,15 @@
             <div class="panel-heading">
                 <%= material_icon.insert_chart %>
                 Reports
+            </div>
+            <div class="panel-body"></div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <%= material_icon.timer %>
+                Entries
             </div>
             <div class="panel-body"></div>
         </div>

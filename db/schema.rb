@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108134325) do
+ActiveRecord::Schema.define(version: 20161108143143) do
 
   create_table "entries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "person_id"
@@ -22,7 +22,9 @@ ActiveRecord::Schema.define(version: 20161108134325) do
     t.string   "status"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "project_id"
     t.index ["person_id"], name: "index_entries_on_person_id", using: :btree
+    t.index ["project_id"], name: "index_entries_on_project_id", using: :btree
   end
 
   create_table "people", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -47,5 +49,6 @@ ActiveRecord::Schema.define(version: 20161108134325) do
   end
 
   add_foreign_key "entries", "people"
+  add_foreign_key "entries", "projects"
   add_foreign_key "projects", "people"
 end
