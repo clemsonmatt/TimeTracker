@@ -38,6 +38,7 @@
                 <%= bootstrap_form_for @entry, url: {action: 'create'} do |f| %>
                     <%= f.text_field :title, class: "form-control" %>
                     <%= f.text_area :description, class: "form-control" %>
+                    <%= f.select :project_id, @projects.collect {|project| [project.title, project.id]}, {include_blank: '-- Select project if needed --'} %>
                     <%= f.check_box :current, {:label => "Start now", checked: true, :id => "js-current"} %>
                     <%= f.check_box :complete, {:label => "Complete", :id => "js-complete"} %>
                     <div id="js-complete-fields" style="display: none;">

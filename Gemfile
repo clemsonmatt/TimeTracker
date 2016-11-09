@@ -55,3 +55,4 @@ gem 'bootstrap_form'
 
 gem 'momentjs-rails'
 gem 'jquery-turbolinks'
+gem 'strip_attributes'

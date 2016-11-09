@@ -2,21 +2,29 @@ class EntryController < ApplicationController
     before_action :logged_in?
 
     def new
-        @entries = all_entries
-        @entry   = Entry.new
+        @entries  = all_entries
+        @projects = all_projects
+
+        @entry = Entry.new
     end
 
     def edit
-        @entries = all_entries
-        @entry   = Entry.find(params[:id])
+        @entries  = all_entries
+        @projects = all_projects
+        @entry    = Entry.find(params[:id])
     end
 
     def create
-        @entries = all_entries
+        @entries  = all_entries
+        @projects = all_projects
 
         @entry        = Entry.new(entry_params)
         @entry.person = @user
         @entry.status = 'created'
+
+        if entry_params['current']
+            @entry.status = 'active'
+        end
 
         if entry_params['complete'] == '1'
             # mark as paused since completed
@@ -33,7 +41,8 @@ class EntryController < ApplicationController
     end
 
     def update
-        @entries = all_entries
+        @entries  = all_entries
+        @projects = all_projects
 
         @entry = Entry.find(params[:id])
 
@@ -127,11 +136,15 @@ class EntryController < ApplicationController
 
     private
         def entry_params
-            params.require(:entry).permit(:start, :end, :title, :description, :current, :complete, :total_time)
+            params.require(:entry).permit(:start, :end, :title, :description, :current, :complete, :total_time, :project_id)
         end
 
         def all_entries
             # add method in entry.rb to find all entries for a user (does joins for clients and projects)
-            @entries = Entry.all.where(person: @user).order(start: :desc).take(10)
+            Entry.all.where(person: @user).order(start: :desc).take(10)
+        end
+
+        def all_projects
+            Project.all.where(person: @user).order(created_at: :desc).take(10)
         end
 end

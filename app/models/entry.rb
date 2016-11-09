@@ -1,8 +1,10 @@
 class Entry < ApplicationRecord
     belongs_to :person
-    belongs_to :project
+    belongs_to :project, optional: true
 
     validates :title, presence: true
+
+    strip_attributes
 
     attr_accessor :current
     attr_accessor :complete

@@ -39,6 +39,7 @@
                 <%= bootstrap_form_for @entry, url: {action: 'update'} do |f| %>
                     <%= f.text_field :title, class: "form-control" %>
                     <%= f.text_area :description, class: "form-control" %>
+                    <%= f.select :project_id, @projects.collect {|project| [project.title, project.id]}, {include_blank: '-- Select project if needed --'} %>
                     <%= f.text_field :start, class: "datepicker form-control", placeholder: "yyyy-mm-dd" %>
                     <%= f.text_field :total_time, class: "form-control", placeholder: "hh:mm:ss" %>
                     <br />
