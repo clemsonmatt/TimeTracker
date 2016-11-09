@@ -36,11 +36,8 @@
                         </center>
                     <% elsif e.status == 'paused' %>
                         <h4><%= e.total_time %></h4>
-                        <%= link_to status_entries_path(id: e, status: 'active', currentRoute: controller_name), class: "btn-round btn-round-default btn-round-sm pull-left", style: "margin-right: 9px" do %>
+                        <%= link_to status_entries_path(id: e, status: 'active', currentRoute: controller_name), class: "btn-round btn-round-default btn-round-sm pull-left", style: "margin: 0px 15px" do %>
                             <%= material_icon.replay.md_18 %>
-                        <% end %>
-                        <%= link_to destroy_entries_path(id: e, currentRoute: controller_name), method: :delete, class: "btn-round btn-round-danger-simple btn-round-sm pull-left", style: "margin-right: 9px;" do %>
-                            <%= material_icon.delete_forever.md_18 %>
                         <% end %>
                         <%= link_to edit_entry_path(id: e), class: "btn-round btn-round-warning-simple btn-round-sm pull-left" do %>
                             <%= material_icon.edit.md_18 %>
