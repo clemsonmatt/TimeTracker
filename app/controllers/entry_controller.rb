@@ -54,12 +54,15 @@ class EntryController < ApplicationController
     end
 
     def destroy
-        entry  = Entry.find(params[:id])
-        person = entry.person
+        entry   = Entry.find(params[:id])
+        person  = entry.person
+        project = entry.project
         entry.destroy
 
         if params[:currentRoute] == 'entry'
             return redirect_to new_entry_path
+        elsif params[:currentRoute] == 'project'
+            return redirect_to project_path(project)
         end
 
         redirect_to person_path(person)
@@ -111,6 +114,8 @@ class EntryController < ApplicationController
 
         if params[:currentRoute] == 'entry'
             return redirect_to new_entry_path
+        elsif params[:currentRoute] == 'project'
+            return redirect_to project_path(@entry.project)
         end
 
         redirect_to person_path(@entry.person)
@@ -129,6 +134,8 @@ class EntryController < ApplicationController
 
         if params[:currentRoute] == 'entry'
             return redirect_to new_entry_path
+        elsif params[:currentRoute] == 'project'
+            return redirect_to project_path(@entry.project)
         end
 
         redirect_to person_path(@entry.person)

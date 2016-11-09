@@ -35,7 +35,7 @@
                 <%= material_icon.timer %>
                 Entries
             </div>
-            <div class="panel-body"></div>
+            <%= render "entry/entries", entries: @project.entries %>
         </div>
     </div>
 </div>
