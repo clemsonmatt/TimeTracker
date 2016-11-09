@@ -12,6 +12,14 @@
                             <% else %>
                                 <%= e.start.strftime('%m/%d/%y') %>
                             <% end %>
+
+                            <% if e.project != nil %>
+                                <span class="label label-default">
+                                    <%= link_to project_path(e.project), style: "color: inherit;" do %>
+                                        <%= material_icon.work.md_18.style("padding-top: 5px; position: absolute;") %> <span style="margin-left: 23px;"><%= e.project %></span>
+                                    <% end %>
+                                </span>
+                            <% end %>
                         </small>
                     </h4>
                     <% if e.description %>
